@@ -1,13 +1,13 @@
 "use client";
 
 import { useModuleTopic } from "./ModuleTopicContext";
-import * as course from "../courseData";
+import { getModule } from "../courseData";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { slugify } from "../utils/slug";
 
 export default function Sidebar({ slug }: { slug: string }) {
-  const mod = course.getModule(slug);
+  const mod = getModule(slug);
   const { setActiveTopic } = useModuleTopic();
   const pathname = usePathname();
 
@@ -15,7 +15,8 @@ export default function Sidebar({ slug }: { slug: string }) {
 
   return (
     <aside className="pr-6 text-sm text-zinc-300">
-      <div className="space-y-8">
+      {/* Внутренний блок — sticky: сам сайдбар не содержит overflow, поэтому он не создаёт отдельного скролла */}
+      <div className="sticky top-24 space-y-8">
         {mod.sections.map((section) => (
           <div key={section.label} className="space-y-3">
             <div className="text-[16px] font-semibold">{section.label}</div>

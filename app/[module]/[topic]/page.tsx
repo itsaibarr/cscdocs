@@ -1,3 +1,4 @@
+import type { ComponentType } from "react";
 import FadeIn from "../../components/FadeIn";
 import { getModule } from "../../courseData";
 import { slugify } from "../../utils/slug";
@@ -15,10 +16,10 @@ export default async function TopicPage({
     allItems.find((it) => slugify(it) === topicSlug) ?? decodeURIComponent(topicSlug);
 
   // Попытка динамически импортировать компонент с контентом темы
-  let TopicComp: any = null;
+  let TopicComp: ComponentType | null = null;
   try {
-    TopicComp = (await import(`../../topics/${moduleSlug}/${topicSlug}`)).default;
-  } catch (e) {
+    TopicComp = (await import(`../../topics/${moduleSlug}/${topicSlug}`)).default as ComponentType;
+  } catch {
     // файл с контентом не найден — оставляем TopicComp = null
   }
 
