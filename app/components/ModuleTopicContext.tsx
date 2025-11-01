@@ -3,7 +3,6 @@
 import { createContext, useContext, useMemo, useState } from "react";
 
 type Ctx = {
-  slug: string;
   activeTopic: string;
   setActiveTopic: (t: string) => void;
 };
@@ -11,16 +10,14 @@ type Ctx = {
 const ModuleTopicContext = createContext<Ctx | undefined>(undefined);
 
 export function ModuleTopicProvider({
-  slug,
   defaultTopic,
   children,
 }: {
-  slug: string;
   defaultTopic?: string;
   children: React.ReactNode;
 }) {
   const [activeTopic, setActiveTopic] = useState<string>(defaultTopic ?? "");
-  const value = useMemo(() => ({ slug, activeTopic, setActiveTopic }), [slug, activeTopic]);
+  const value = useMemo(() => ({ activeTopic, setActiveTopic }), [activeTopic]);
   return <ModuleTopicContext.Provider value={value}>{children}</ModuleTopicContext.Provider>;
 }
 

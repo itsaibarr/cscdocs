@@ -1,4 +1,3 @@
-"use client";
 
 import FadeIn from "../components/FadeIn";
 import Sidebar from "../components/Sidebar";

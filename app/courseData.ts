@@ -24,14 +24,46 @@ export const modules: CourseModule[] = [
       },
     ],
   },
-  { slug: "html-css", label: "HTML и CSS", sections: [{ label: "Темы", items: ["HTML основы", "CSS основы"] }] },
-  { slug: "javascript", label: "Java Script", sections: [{ label: "Темы", items: ["Синтаксис", "Типы данных"] }] },
-  { slug: "dom", label: "DOM", sections: [{ label: "Темы", items: ["Навигация по DOM", "События"] }] },
-  { slug: "advanced-css", label: "Продвинутый CSS", sections: [{ label: "Темы", items: ["Flex/Grid", "Анимации"] }] },
-  { slug: "fetch", label: "Fetch", sections: [{ label: "Темы", items: ["Запросы", "Обработка ошибок"] }] },
-  { slug: "terminal", label: "Терминал (Git и Github)", sections: [{ label: "Темы", items: ["CLI основы", "Git workflow"] }] },
-  { slug: "nodejs", label: "Node.JS", sections: [{ label: "Темы", items: ["NPM", "Express"] }] },
-  { slug: "databases", label: "Databases", sections: [{ label: "Темы", items: ["SQL", "NoSQL"] }] },
+  {
+    slug: "html-css",
+    label: "HTML и CSS",
+    sections: [{ label: "Темы", items: ["HTML основы", "CSS основы"] }],
+  },
+  {
+    slug: "javascript",
+    label: "Java Script",
+    sections: [{ label: "Темы", items: ["Синтаксис", "Типы данных"] }],
+  },
+  {
+    slug: "dom",
+    label: "DOM",
+    sections: [{ label: "Темы", items: ["Навигация по DOM", "События"] }],
+  },
+  {
+    slug: "advanced-css",
+    label: "Продвинутый CSS",
+    sections: [{ label: "Темы", items: ["Flex/Grid", "Анимации"] }],
+  },
+  {
+    slug: "fetch",
+    label: "Fetch",
+    sections: [{ label: "Темы", items: ["Запросы", "Обработка ошибок"] }],
+  },
+  {
+    slug: "terminal",
+    label: "Терминал (Git и Github)",
+    sections: [{ label: "Темы", items: ["CLI основы", "Git workflow"] }],
+  },
+  {
+    slug: "nodejs",
+    label: "Node.JS",
+    sections: [{ label: "Темы", items: ["NPM", "Express"] }],
+  },
+  {
+    slug: "databases",
+    label: "Databases",
+    sections: [{ label: "Темы", items: ["SQL", "NoSQL"] }],
+  },
 ];
 
 export const introContent = {
@@ -60,6 +92,7 @@ export const introContent = {
     },
   ],
 };
+
 
 export function getModule(slug: string) {
   return modules.find((m) => m.slug === slug);

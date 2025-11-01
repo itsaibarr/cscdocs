@@ -2,16 +2,40 @@ import type { ReactNode } from "react";
 import Navbar from "../components/Navbar";
 import ModuleTabs from "../components/ModuleTabs";
 import Footer from "../components/Footer";
+import Sidebar from "../components/Sidebar";
+import { ModuleTopicProvider } from "../components/ModuleTopicContext";
+import { getModule } from "../courseData";
+import TwoPane from "../components/TwoPane";
 
-export default function ModuleLayout({ children }: { children: ReactNode }) {
+export default async function ModuleLayout({
+  children,
+  params,
+}: {
+  children: ReactNode;
+  params: Promise<{ module: string }>;
+}) {
+  const { module: moduleSlug } = await params;
+
+  const current = getModule(moduleSlug);
+  const defaultTopic = current?.sections?.[0]?.items?.[0] ?? "";
+
   return (
-    <div className="min-h-screen bg-[#0f1115] text-zinc-200 antialiased">
+    <div className="min-h-screen bg-[#0A0D1A] text-zinc-200 antialiased">
       <Navbar />
       <ModuleTabs />
-      <main className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-4 py-10 lg:grid-cols-[16rem_minmax(0,1fr)]">
-        {children}
-      </main>
-      <Footer />
+      <ModuleTopicProvider defaultTopic={defaultTopic}>
+        <TwoPane
+          className="py-10"
+          left={<Sidebar slug={moduleSlug} />}
+          right={
+            <div className="min-w-0">
+              {children}
+              <Footer />
+            </div>
+          }
+        />
+      </ModuleTopicProvider>
     </div>
   );
 }
+
