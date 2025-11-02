@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function VvedenieTopic() {
   return (
     <div className="space-y-4 text-zinc-300 leading-7">
@@ -6,10 +8,22 @@ export default function VvedenieTopic() {
       <p>Наш курс построен так, чтобы обучение было не просто теорией, а настоящей практикой — шаг за шагом ты научишься создавать современные сайты, понимать структуру веба и развиваться как специалист.</p>
       <p>Готов прокачать свои навыки и построить карьеру в digital-мире? Тогда начнём 🚀</p>
       <h2 className="text-xl font-semibold text-white">Чему вы научитесь на курсе</h2>
-      <ul className="list-disc pl-6">
-        <li>Как устроен курс и последовательность тем</li>
-        <li>Какие инструменты понадобятся (VS Code, Git и т.д.)</li>
-        <li>Как проходить задания и где задавать вопросы</li>
+      <ul className="flex items-center justify-between">
+        <li className="px-4 pt-4 pb-8 max-w-[248px] border min-h-[220px] border-[#222531] rounded-[15px] text-[14px]">
+            <Image src="/pen.svg" alt="VS Code site" width="40" height="40"/>
+            <h2 className="pt-4 pb-1 text-white font-semibold text-[18px]">Писать веб сайты</h2>
+            Вы сможете с нуля создавать свой задумки
+        </li>
+        <li className="px-4 pt-4 pb-8 max-w-[248px] border min-h-[220px] border-[#222531] rounded-[15px] text-[14px]">
+            <Image src="/network.svg" alt="VS Code site" width="40" height="40"/>
+            <h2 className="pt-4 pb-1 text-white font-semibold text-[18px]">Работать в команде</h2>
+            Работа с гит и гитхабом, даст возможность работать с другими разработчиками
+        </li>
+        <li className="px-4 pt-4 pb-8 max-w-[248px] border min-h-[220px] border-[#222531] rounded-[15px] text-[14px]">
+            <Image src="/trend.svg" alt="VS Code site" width="40" height="40"/>
+            <h2 className="pt-4 pb-1 text-white font-semibold text-[18px]">Быстрой адаптаций</h2>
+            В будущем вы и сами сможете учиться новым инструментам
+        </li>
       </ul>
     </div>
   );

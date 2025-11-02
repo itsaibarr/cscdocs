@@ -15,8 +15,8 @@ export default function Sidebar({ slug }: { slug: string }) {
 
   return (
     <aside className="pr-6 text-sm text-zinc-300">
-      {/* Внутренний блок — sticky: сам сайдбар не содержит overflow, поэтому он не создаёт отдельного скролла */}
-      <div className="sticky top-24 space-y-8">
+      {/* Убрана sticky-обёртка — элемент теперь скроллится вместе со страницей */}
+      <div className="space-y-8">
         {mod.sections.map((section) => (
           <div key={section.label} className="space-y-3">
             <div className="text-[16px] font-semibold">{section.label}</div>
